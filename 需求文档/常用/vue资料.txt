@@ -1,0 +1,9 @@
+https://vuejs.org -- Core Docs
+https://forum.vuejs.org -- Forum
+https://gitter.im/vuejs/vue -- Gitter Chat
+https://twitter.com/vuejs -- Twitter
+http://vuejs-templates.github.io/webpack -- Docs for This Template
+http://router.vuejs.org -- vue-router
+http://vuex.vuejs.org -- vuex
+http://vue-loader.vuejs.org -- vue-loader
+https://github.com/vuejs/awesome-vue -- awesome-vue

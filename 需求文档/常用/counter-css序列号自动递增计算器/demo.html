@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			ul,li{list-style:none;}
+			/*设置一级自增长，并为其取名"one-level"*/
+			dl{
+				counter-reset: one-level 0;
+			}
+			/*<dt>标签承载one-level,并设置二级自增长"two-level"供<dd>使用*/
+			dl>dt{
+				counter-increment: one-level;
+				counter-reset: two-level 0;
+				margin: 8px 0;
+				height: 30px;
+				line-height: 30px;
+				background: darkseagreen;
+				color: #eee;
+			}
+			
+			dl>dt:before{
+				content: counter(one-level) ".";
+				display:inline-block;
+				width: 30px;
+				height: 30px;
+				margin-right: 6px;
+				text-align: center;
+				background:seagreen;
+			}
+			
+			/*dd标签承载two-level*/
+			dl>dd{
+				counter-increment: two-level;
+				height: 26px;
+				line-height: 26px;
+				background:mistyrose;
+				color: #333;
+				margin-left: 30px;
+			}
+			
+			dl>dd:before{
+				content: counter(one-level) "-" counter(two-level) ":";
+				display:inline-block;
+				padding: 0 4px;
+				height: 26px;
+				margin-right: 6px;
+				text-align: center;
+				background:pink;
+			}
+		</style>
+	</head>
+	<body>
+		<dl>
+			<dt>利用css中counter一系列属性制作自增序列号</dt>
+			<dd>level2</dd>
+			<dt>配合:after,:befor伪类，所以旧浏览器支持性不好</dt>
+			<dt>无需span,i等手动添加序号，去掉或添加一条自动重新排序</dt>
+		</dl>
+	</body>
+</html>
+
+<!--使用方法： counter-reset:xxx 0; 
+		counter-increment:xxx; 
+		content:counter(xxx) "分隔符"；
+1、父级设置counter-resrt，并取个名字
+2、哪个子级需要序列号的就添加属性counter-increment:父级中取得名字
+3、设置子级的:before伪类 content:counter(父级中取得名字) "序列号分隔符"-->
+

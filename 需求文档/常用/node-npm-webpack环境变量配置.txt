@@ -1,0 +1,25 @@
+1、nodeJS:
+
+配置 系统变量-- Path : nodeJS 的安装路径  D:\nodejs;
+
+2、npm设置 全局和缓存安装路径  
+
+npm config set prefix "d:\nodeJs\node_global_modules"
+npm config set cache "d:\nodeJs\node_cache_modules"
+
+此时  D:\nodejs 目录下多出两个文件夹 node_global_modules和node_cache_modules 用于承载 全局安装的插件
+
+3、配置 用户变量 NODE_PATH -- d:\nodejs\node_global_modules\node_modules
+       
+        用户变量 PATH -- 同上
+
+
+4、安装局部 webpack 
+
+配置 系统变量 Path -- 添加一条: 项目目录\node_modules\.bin
+ 
+     用户变量 NODE_PATH 和 PATH都添加上一条路径
+ 
+多路径用逗号分开
+
+这样做是为了在局部安装webpack的项目根目录里使用webpack命令 而不用进入\node_modules\.bin目录才能执行webpack命令

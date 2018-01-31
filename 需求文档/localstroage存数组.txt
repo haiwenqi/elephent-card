@@ -1,0 +1,11 @@
+var newStoreList= [];
+						var oldStoreList = JSON.parse(localStorage.getItem('userInfo'));
+
+
+if(oldStoreList != null){
+											oldStoreList.push(userInfo);
+											store.save("userInfo",oldStoreList);
+										}else{
+											newStoreList.push(userInfo);
+											store.save("userInfo",newStoreList);
+										}

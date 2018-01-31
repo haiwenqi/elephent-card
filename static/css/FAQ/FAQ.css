@@ -1,0 +1,59 @@
+body{
+	position: relative;
+}
+h4,p{
+	letter-spacing:1px
+}
+#indexPage h4.topTitle{
+	font-size: 24px;
+	color: #333;
+	font-weight: normal;
+	margin-bottom: 42px;
+	margin-top: 20px;
+	margin-left: 15px;
+}
+#indexPage li{
+	cursor: pointer;
+	padding: 0 15px;
+	margin-bottom: 28px;
+}
+#indexPage li p.txt{
+	float: left;
+	font-size: 16px;
+	color: #666;
+	margin-bottom: 12px;
+	margin-top: -1px;
+}
+#indexPage .left_icon{
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin-right: 12px;
+}
+#indexPage .right_icon{
+	float: right;
+	width: 16px;
+	height: 16px;
+	margin-top: 1px;
+}
+
+#detailPage div{
+	display: none;
+}
+
+/*===说明文字===*/
+
+.detailPage{
+	display: none;
+	clear: both;
+	background: #f8f8fc;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+.detailPage p{
+	font-size: 16px;
+	color: #666;
+	padding: 0 15px;
+	margin-bottom: 4px;
+}

@@ -1,0 +1,6 @@
+<!--[if lt IE 9]> <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script><![endif]--> 
+
+<!--[if gte IE 9]> <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script><![endif]-->
+
+
+JQ2.0以上不支持IE6/7/8

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<!--搜狐接口获取ip地址-->
+		<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+		<style type="text/css">
+			p{font-size: 24px;line-height: 24px;}
+		</style>
+	</head>
+	<body>
+		<p id="IP"></p>
+		<p id="mobileName"></p>
+		<p id="userAngent"></p>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				//获取ip地址  returnCitySN["cip"]
+				$("#IP").html('IP地址：'+returnCitySN["cip"]);
+				
+				var ua=navigator.userAgent.toLowerCase();
+				$("#userAngent").html(ua);
+				var mobileSystemArr=['htc','mi','meizu','zte','huawei','coolpad','k-touch','koobee','oppo','gionee','vivo','tcl','360','letv','smartisan','nubia','samsung'];
+					
+				var result = function achieveMobile(){
+					var mobileName="";
+					for (var i = 0; i < mobileSystemArr.length; i++) {
+					
+						var rgx=new RegExp(mobileSystemArr[i],"g");
+						
+			    		if(ua.search(rgx)>-1){
+			    			mobileName=mobileSystemArr[i];
+			    		}
+				    }
+					
+					return mobileName;
+				}();
+				
+				if (/android (\d+\.\d+)/.test(ua)) {
+					//安卓手机
+					//alert("安卓手机");
+					if (result) {
+			    		$("#mobileName").html("手机型号为："+result);
+			    	} else{
+			    		$("#mobileName").html( "没有匹配的手机型号");
+			    	}
+				} else if(ua.indexOf('iphone') > -1){
+					//苹果手机
+				}else if(ua.indexOf('windows phone') > -1){
+					//winphone手机
+				}else{
+					//非手机端
+				}
+				
+				
+				
+		    	
+				
+				
+				
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>
+<!--returnCitySN["cip"] 118.187.28.42-->
+<!--returnCitySN["cname"] 省市-->
+<!--
+	其他方法判断手机
+	ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1    安卓手机
+	ua.indexOf('iphone') > -1   苹果手机
+	ua.indexOf('windows phone') > -1   winphone手机
+	
+	/android (\d+\.\d+)/.test(ua)
+-->
+
+<!--
+	HTC 宏达
+	Lenovo
+	MI 小米
+	MEIZU
+	ZTE 中兴
+	HUAWEI
+	Coolpad 酷派
+	K-Touch 天语
+	Koobee 酷比
+	OPPO
+	Gionee 金立
+	VIVO
+	TCL
+	360
+	Letv 乐视 
+	Smartisan 锤子手机
+	nubia 努比亚
+	Samsung 
+	
+-->

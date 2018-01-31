@@ -1,0 +1,159 @@
+/*一、变量: 该特性适用于定义主题    @变量名:变量值
+二、混入(带参数): 一个 classB 中引入另外一个已经定义的 classA，并且classA可以定义参数
+        混合类class一定是会被用到很多次的，所以抽离出来
+        混入 高级应用  1、模式匹配--用一个变量控制另一个变量
+              2、when/and/not关键字 -- 对抽离出来的公共类class做附加条件判断
+三、命名空间: 防止重名困扰
+四、嵌套: 与HTML中的 DOM 结构相对应。。。 有 & 时解析的是同一个元素或此元素的伪类
+五、运算及函数: 对数值型的 value 进行操作。。。并提供一套对 颜色、数值 运算方法 如：color(),round(),Math()等
+六、字符串插值: 将 变量 嵌入到字符串中   @{变量名}
+七、避免编译：~``  原样输出 反引号 中内容
+八、JavaScript 表达式  :可以用Js语言
+
+
+/*========less定义=============*/
+@base-text-color:#A6E0AD;
+@base-bg-color:#FF979D;
+@base-text:"hello";
+@base-img-url:"http://www.tigerjoys.com/img";
+@base-height:~`document.documentElement.clientHeight+"px"`;
+
+.flex-display{
+    display: box;                /* OLD - Android 4.4- */
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+}
+.flex-direction(@direction:row){
+     /* 09版 */
+    -webkit-box-orient:@direction;
+    /* 12版 */
+    -webkit-flex-direction: @direction;
+    -moz-flex-direction: @direction;
+    -ms-flex-direction: @direction;
+    -o-flex-direction: @direction;
+    flex-direction: @direction;
+}
+.flex-wrap(@wrap:nowrap){
+    /* 09版 */
+    -webkit-box-lines: multiple;
+    /* 12版 */
+    -webkit-flex-wrap: @wrap;
+    -moz-flex-wrap: @wrap;
+    -ms-flex-wrap: @wrap;
+    -o-flex-wrap: @wrap;
+    flex-wrap: @wrap;
+}
+/*合并flex-direction和flex-wrap*/
+.flex-flow(@direction:row,@wrap:nowrap){
+    /*多个参数用@arguments代替*/
+    flex-flow: @arguments;
+    -webkit-flex-flow: @arguments;
+    -ms-flex-flow: @arguments;
+}
+.justify-content(@justify:center){
+    /* 09版 */
+    -webkit-box-pack: @justify;//(主轴为横轴时使用)
+    /* 12版 */
+    -webkit-justify-content: @justify;
+    -moz-justify-content: @justify;
+    -ms-justify-content: @justify;
+    -o-justify-content: @justify;
+    justify-content: @justify;
+}
+.align-items(@align:center){
+    /* 09版 */
+    -webkit-box-pack: @align;//(主轴为横轴时使用)
+    /* 12版 */
+    -webkit-justify-content: @align;
+    -moz-justify-content: @align;
+    -ms-justify-content: @align;
+    -o-justify-content: @align;
+    justify-content: @align;
+}
+.flex{
+    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;         /* OLD - Firefox 19- */
+    -webkit-flex: 1;          /* Chrome */
+    -ms-flex: 1;              /* IE 10 */
+    flex: 1;
+}
+
+.box-sizing(@boxSizing:border-box){
+    box-sizing: @boxSizing;
+    -webkit-box-sizing: @boxSizing;
+    -moz-box-sizing: @boxSizing;
+};
+
+/*====模式匹配====*/
+/*首先定义所有可能，引用时采取某个变量 (如 @switch), 当变量(@switch)与之前定义的所有可能中的某一个匹配上就渲染那个
+ 只有定义的变量(@switch) 是变化的
+ * */
+@switch:light;
+.mixin(light,@color){
+    background-color: lighten(@color,10%);
+};
+.mixin(dark,@color){
+    background-color: darken(@color,10%);
+}
+
+/*===when 关键字  多加一个对参数的判断===*/
+.mixin2(@color2) when (lightness(@color2)>=50%){
+    background: darkred;
+}
+.mixin2(@color2) when (lightness(@color2)<50%){
+    background: skyblue;
+}
+/*=======正常css==========*/
+
+#hwq-nameSpace{
+    .flower{
+        border: 1px solid #333333;
+    }
+}
+#other-nameSpace{
+    .flower{
+        border: 1px solid #30C37C;
+    }
+}
+
+ul.listWrap{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    .flex-display;
+    /*.flex-direction;*/
+    /*.flex-warp;*/
+    .flex-flow;
+    .justify-content(space-around);
+    .align-items;
+    
+    li{
+        .flex;
+        margin-right: 10px;
+        background-color: @base-bg-color;
+        #hwq-nameSpace>.flower; //使用hwq的命名空间
+        font-size: 24px;
+        color: @base-text-color;
+        text-align: center;
+        &:nth-last-child(1){
+             margin-right:0;
+             height:@base-height;
+             //background-color: darken(@base-bg-color,5%);
+             background: url("@{base-img-url}/portfolio/3.png");
+             &:after{
+                 content: `@{base-text}+"-world"`; /*字符串插值*/
+                 
+             }
+        }
+        &:nth-child(1){
+            .mixin(@switch,@base-bg-color); /*通过变量控制渲染哪个参数*/
+        }
+        &:nth-child(2){
+            .mixin2(#333); /*传入的参数 根据 when 后面的判断条件 渲染哪个mixin2*/
+        }
+              
+    }
+}

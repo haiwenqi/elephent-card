@@ -1,0 +1,52 @@
+gitlab密码：w0828entty
+
+1.git config --global user.name "haiwenqi"
+  git config --global user.email "haiwenqi@tigerjoys.com"  配置git为自己的用户名和邮箱，方便其他开发人员知道是谁提交的
+
+2.git init--初始化git。本地会多一个.git文件
+
+3.git clone <项目地址>  第一次用clone，后面用fetch
+
+4.git status--查看提交状态
+
+5.git add <file.name>/git add .   提交本地文件到缓存区
+
+6.git commit -m "备注"  提交缓存区到版本区
+
+7.git commit -a -m "备注"  一条命令提交本地到版本区(合并5/6两条命令)
+
+8.git push <远程库名/默认为origin> <分支/默认为master>  提交版本区到远程仓库
+（git push origin master）
+
+git remote --查看远成仓库名  git remote -v 查看远程仓库地址
+
+9.git fetch --> git diff master origin/master --> git merge origin/master
+三个指令完成更新远程仓库到本地.之后循环4-8条
+
+上述三个指令合并一个 git pull （坏处，不知道远程与本地有哪些差异直接合并）
+
+
+
+ssh://git@gitlab.appleflying.com:2022/livedocument/miliao.git
+
+我的gitlab 项目地址： ssh://git@gitlab.appleflying.com:2022/blue-bee/haiwenqi-web.git
+
+
+
+============================
+首次添加
+
+git init
+git add 文件名
+git commit -m "说明"
+git remote add origin https://github.com/haiwenqi/yoyo.git
+git push -u origin master
+
+=============================
+文件修改过后提交
+
+git remote add origin https://github.com/haiwenqi/southernCar2.git
+git push -u origin master
+
+
+

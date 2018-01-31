@@ -1,0 +1,44 @@
+上传修改文件部步骤
+
+git add  .
+git stash    我改的东西移走
+git pull  更新别人修改的文件
+git stash pop    我改的东西移回来
+git add .
+git   commit  -m "提交说明"
+git  push
+
+
+====================================
+
+剩下常用命令
+ git status  
+git diff
+git log 
+
+git merge experiment      把experiment 合并到当前分支
+git branch  分支   
+git checkout   分支  
+
+====================================
+
+git flow init
+初始化，使用默认即可
+
+git flow feature start <your feature>
+git flow feature finish <your feature>
+开发一个功能
+
+git flow feature publish <name>
+git flow feature pull <remote> <name>
+上传到服务器或者更新
+
+git flow release start <release> 
+git flow release finish <release>
+发布版本
+
+git flow hotfix start <release> 
+git flow hotfix finish <release>
+修补bug
+20:11:27
+杨军明 2017/11/13 20:11:27

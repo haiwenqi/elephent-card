@@ -1,0 +1,108 @@
+<!--双卡上网设置-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="stylesheet" type="text/css" href="../static/jsPublicLibs/reset_v0.0.1.css"/>
+		<title></title>
+		<style type="text/css">
+			h4.topTitle{
+				text-align: center;
+				font-size: 18px;
+				color: #fff;
+				line-height: 30px;
+				font-weight: normal;
+				padding: 15px;
+			}
+			ul.stepList{
+				padding-bottom: 44px;
+			}
+			ul.stepList li{
+				padding: 0 15px;
+				margin-bottom: 25px;
+			}
+			ul.stepList p.txt{
+				font-size: 16px;
+				color: #F79B7F;
+				margin-bottom: 12px;
+			}
+			ul.stepList img{
+				box-shadow:2px 4px 6px #ecf0ef;
+			}
+			ul.stepList h4{
+				font-size: 18px;
+				color: #666;
+				font-weight: normal;
+				padding: 15px;
+			}
+			.setBtn{
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				height: 44px;
+				line-height: 44px;
+				font-size: 18px;
+				color: #fff;
+				text-align: center;
+				background:#FE8050;
+			}
+			/*状态*/
+			.state1{
+				background-color: #65CA48;
+			}
+			.state2{
+				background-color: #4A4849;
+			}
+		</style>
+	</head>
+	<body>
+		<!--state1为绿色底代表是大象卡，文字为"您当前正在使用卡n（大象卡）上网"(文字由安卓端提供)
+			state2为黑色底代表不是大象卡，文字为"您当前正在使用卡n（中国移动卡/中国联通卡/电信卡/...）上网"
+		-->
+		<h4 class="topTitle">
+			<!--获取来的上网卡信息填充至此-->
+		</h4>
+		<ul class="stepList">
+			<h4>如果您是双卡手机，您可以在系统设置中，设置默认的上网卡，设置后数据流量将使用默认卡</h4>
+			<li>
+				<p class="txt">步骤一：打开系统设置，选择双卡设置</p>
+				<img src="../static/img/doubleCardSet/step1.png"/>
+			</li>
+			<li>
+				<p class="txt">步骤二：进去后选择默认移动数据，有的系统叫（上网）</p>
+				<img src="../static/img/doubleCardSet/step2.png"/>
+			</li>
+			<li>
+				<p class="txt">步骤三：选择您想用哪张卡上网</p>
+				<img src="../static/img/doubleCardSet/step3.png"/>
+			</li>
+		</ul>
+		<div class="setBtn" onclick="gotoSetFragment()">前往设置</div>
+		<script src="../static/jsPublicLibs/jquery/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 打开设置
+			//android.openSetting();
+			function gotoSetFragment(){
+				android.openSetting();
+			}
+			
+			$(function(){
+				// 判断我们的物联网卡是不是默认上网卡  boolean android.isIotDefaultData();
+				var ifelephantCard = android.isIotDefaultData();
+				// 获得提示信息  String android.getDefaultDataCardName();
+				var txt = android.getDefaultDataCardName();
+				
+				//将获取来的 上网卡信息文字填充至.topTitle
+				$(".topTitle").html(txt);
+				if(isElephantCard){
+					$(".topTitle").addClass('state1');
+				}else{
+					$(".topTitle").addClass('state2');
+				}
+			})
+			
+		</script>
+	</body>
+</html>

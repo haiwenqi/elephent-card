@@ -1,0 +1,3 @@
+netsh wlan set hostednetwork mode=allow ssid=haiwenqi-wifi key=12345678hwq
+
+netsh wlan start hostednetwork

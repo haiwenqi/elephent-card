@@ -1,0 +1,90 @@
+<!--常见问题-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta content="telephone=no" name="format-detection" />
+		<!--reset_v0.0.1.css 初始化页面样式 每个页面都会用到;改为CDN路径时去掉../static-->
+		<!--<link rel="stylesheet" type="text/css" href="$!{Const.getCdn()}/jsPublicLibs/reset_v0.0.1.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../static/jsPublicLibs/reset_v0.0.1.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/FAQ/FAQ.css"/>
+		<title></title>
+	</head>
+	<body>
+		<div id="indexPage">
+			<h4 class="topTitle">常见问题</h4>
+			<ul>
+				<li class="clear">
+					<span class="left_icon"><img src="../static/img/FAQ/doubt_icon.png"/></span>
+					<p class="txt">产品介绍</p>
+					<span class="right_icon"><img src="../static/img/FAQ/rightArrow_icon.png"/></span>
+					<div class="detailPage">
+						<p>大象卡，是大象卡公司与中国移动为回馈用户而联合推出的流量卡产品，仅对邀请用户开放办理套餐，大象卡的流量资费相对于运营商官方流量有相当大的优势，办理套餐的用户，可以享受高速快捷的上网体验</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="left_icon"><img src="../static/img/FAQ/doubt_icon.png"/></span>
+					<p class="txt">开通激活</p>
+					<span class="right_icon"><img src="../static/img/FAQ/rightArrow_icon.png"/></span>
+					<div class="detailPage">
+						<p>激活大象卡需要用户提供常用手机号等联系方式，应国家工信部的要求，需要对入网用户进行实名制登记，未实名的用户需要提供身份证明，方可使用该服务</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="left_icon"><img src="../static/img/FAQ/doubt_icon.png"/></span>
+					<p class="txt">首充优惠</p>
+					<span class="right_icon"><img src="../static/img/FAQ/rightArrow_icon.png"/></span>
+					<div class="detailPage">
+						<p>大象卡为了给新用户提供更好的体验，会在用户首次充值时在原有优惠基础上提供更力度更大的优惠套餐，本次套餐只在首次充值时才能享受，首次充值结束后，用户不再享受该特殊优惠</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="left_icon"><img src="../static/img/FAQ/doubt_icon.png"/></span>
+					<p class="txt">充值&退款</p>
+					<span class="right_icon"><img src="../static/img/FAQ/rightArrow_icon.png"/></span>
+					<div class="detailPage">
+						<p>大象卡提供“微信支付”、“支付宝支付”、及“微信二维码支付”、支付提供方为腾讯公司及阿里巴巴公司，大象卡在收到合作方公司确认收款通知后为用户办理套餐，若充值过程中遇到充值不成功，充值不到账等情况，请联系客户解决</p>
+						<p>在遇到充值成功后，仍然不能上网的情况，请查看上网设置。也可联系人工客服进行解答。若用户在操作后仍然不能正常上网，在与人工客户确认后，可申请退款</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="left_icon"><img src="../static/img/FAQ/doubt_icon.png"/></span>
+					<p class="txt">上网卡设置</p>
+					<span class="right_icon"><img src="../static/img/FAQ/rightArrow_icon.png"/></span>
+					<div class="detailPage">
+						<p>在双卡手机系统设置中，会对当前用哪张卡上网进行指定，用户在办理完套餐后，需要在系统设置下>>双卡和移动网络>>上网>>设置卡1或卡2为默认上网卡，用户设置完上网卡后，之后的上网都会通过该卡片进行上网</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="left_icon"><img src="../static/img/FAQ/doubt_icon.png"/></span>
+					<p class="txt">流量查询</p>
+					<span class="right_icon"><img src="../static/img/FAQ/rightArrow_icon.png"/></span>
+					<div class="detailPage">
+						<p>用户在应用主界面可以对当前使用的流量情况进行查询，由于网络原因有可能实时流量并不准确，在流量将要耗尽前，系统用通过消息的方式，将最新情况发送到用户手机上，请在手机系统中打开应用消息，以便能及时收到余额提醒</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="left_icon"><img src="../static/img/FAQ/doubt_icon.png"/></span>
+					<p class="txt">其他问题</p>
+					<span class="right_icon"><img src="../static/img/FAQ/rightArrow_icon.png"/></span>
+					<div class="detailPage">
+						<p>大象卡公司会定期对软件进行升级，用户可以通过菜单中检测升级，以升级到最新版本的应用</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<script src="../static/jsPublicLibs/jquery/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#indexPage li").on('click',function(){
+					$(this).children('.detailPage').slideToggle();
+					$(this).siblings('li').children(".detailPage").slideUp();
+				})
+			})
+		</script>
+		
+	</body>
+</html>

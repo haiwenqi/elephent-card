@@ -1,0 +1,88 @@
+<!--APN设置-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta content="telephone=no" name="format-detection" />
+		<!--reset_v0.0.1.css 初始化页面样式 每个页面都会用到;改为CDN路径时去掉../static-->
+		<!--<link rel="stylesheet" type="text/css" href="$!{Const.getCdn()}/jsPublicLibs/reset_v0.0.1.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../static/jsPublicLibs/reset_v0.0.1.css"/>
+		<title></title>
+		<style type="text/css">
+			h4.topTitle{
+				text-align: center;
+				font-size: 20px;
+				color: #fff;
+				line-height: 30px;
+				font-weight: normal;
+				background: #4A4849;
+				padding: 18px 0;
+				margin-bottom: 15px;
+			}
+			ul.stepList{
+				padding-bottom: 44px;
+			}
+			ul.stepList li{
+				padding: 0 15px;
+				margin-bottom: 25px;
+			}
+			ul.stepList p.txt{
+				font-size: 16px;
+				color: #F79B7F;
+				margin-bottom: 12px;
+			}
+			ul.stepList img{
+				box-shadow:2px 4px 6px #ecf0ef;
+			}
+			.setBtn{
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				height: 44px;
+				line-height: 44px;
+				font-size: 18px;
+				color: #fff;
+				text-align: center;
+				background:#FE8050;
+			}
+		</style>
+	</head>
+	<body>
+		<h4 class="topTitle">
+			若您的手机是初次使用大象卡 <br />可能需要设置APN后才能上网
+		</h4>
+		<!--此段无修改-->
+		<ul class="stepList">
+			<li>
+				<p class="txt">步骤一：打开“设置”，点击“双卡和移动网络”</p>
+				<!--改为CDN路径时去掉 ../static -->
+				<!--<img src="$!{Const.getCdn()}/img/APNset/commDevice/step1.png"/>-->
+				<img src="../static/img/APNset/commDevice/step1.png"/>
+			</li>
+			<li>
+				<p class="txt">步骤二：选择大象卡插入的卡槽，如果大象卡插入卡1就点击卡1，如果大象卡插入卡2，就点击卡2</p>
+				<img src="../static/img/APNset/commDevice/step2.png"/>
+			</li>
+			<li>
+				<p class="txt">步骤三：点击“接入点名称”</p>
+				<img src="../static/img/APNset/commDevice/step3.png"/>
+			</li>
+			<li>
+				<p class="txt">步骤四：点击“新建APN”</p>
+				<img src="../static/img/APNset/commDevice/step4.png"/>
+			</li>
+			<li>
+				<p class="txt">步骤五：在名称处填写“大象卡”，在APN处填写“cmnet”,其他地方不用填写，填好后保存即可</p>
+				<img src="../static/img/APNset/commDevice/step5.png"/>
+			</li>
+		</ul>
+		<!--无修改结束-->
+		<div class="setBtn" onclick="gotoSetFragment()">前往设置</div>
+		<script type="text/javascript">
+			function gotoSetFragment(){
+				android.jumpToApnSetting();
+			}
+		</script>
+	</body>
+</html>

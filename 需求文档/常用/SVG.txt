@@ -1,0 +1,64 @@
+SVG 矢量图  基于XML
+
+一、基本配置：.svg文件头信息
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+
+<svg xmlns="http://www.w3.org/2000/svg">
+
+</svg>
+
+===============================================================================
+二、标签及其属性
+
+===通用属性===
+
+fill--填充色(transparent为透明色)  stroke--边框色/文字颜色  stroke-width--边框粗细  stroke-opacity--边框透明度   style
+
+=================================================================================
+1、<circle></circle>
+
+   圆属性：cx--圆心X坐标  cy--圆心Y坐标  r--半径长  
+
+2、<rect></rect>
+
+   矩形属性：x--左上角X坐标  y--左上角Y坐标   width--宽  height--高  rx--圆角x方向n像素  ry--圆角y方向n像素(相当于border-radius)
+
+3、<line></line>
+
+  直线属性：x1 y1--起点坐标   x2 y2--终点坐标
+
+4、<g></g>  管理一组标签 ,id , 具有通用属性，作用到被包裹的标签上
+ 
+  transform="translate(x,y)"  偏移--中心
+
+5、<text></text>  基准点在文字左下角
+
+  文字属性：x--文字左下角x坐标  y--文字左下角y坐标  text-anchor--水平对齐方式（start,end,middle）  font-size  文字颜色用stroke
+
+  文字水平居中-- text-anchor="middle"  文字垂直居中-- (y坐标 + font-size - 2px)
+
+6、cursor-point  鼠标移近形状写在style中。不可直接当做属性用
+
+7、<image></image>
+
+  图片属性：x,y 左上角坐标，不是中心点坐标  width,height--宽，高  xlink:href--图片地址
+
+节点在文档位置越靠下z-index越大
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
