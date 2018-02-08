@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta content="telephone=no" name="format-detection" />
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- UC强制全屏 --> 
+		<meta name="full-screen" content="yes">
+		<!-- UC应用模式 --> 
+		<meta name="browsermode" content="application">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<!-- QQ应用模式 -->
+		<meta name="x5-page-mode" content="app">
+		<!--reset_v0.0.1.css 初始化页面样式 每个页面都会用到-->
+		<link rel="stylesheet" type="text/css" href="css/reset_v0.0.1.css"/>
+		<!--swiper.min.css/js 上下或左右滑动页面的组件 http://www.swiper.com.cn/-->
+		<link rel="stylesheet" type="text/css" href="js/Swiper-3.4.2/swiper.min.css"/>
+		<!--mobileWeb.css自己写的样式;有一些需要替换路径的图片在其中-->
+		<link rel="stylesheet" type="text/css" href="css/mobileWeb.css"/>
+		<!--ydui.flexible.js控制页面缩放 适配页面用-->
+		<script type="text/javascript" charset="utf-8" src="js/ydui.flexible.js"></script>
+		<title>大象流量卡</title>
+	</head>
+	<body>
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide" id="slide1">
+		        	<img src="img/topImg.png"/>
+		        	<p class="topTitle">0元月租&nbsp;&nbsp;低至0.99元/G</p>
+		        	<img src="img/QRcode.png" class="QRcodeImg"/>
+		        	<p class="tips">扫一扫下载小助手</p>
+		        	<div class="downLoadBtn"><a href="http://flow3.mindmobi.com/flow_v3_service/api/downFlowApp">0元月租&nbsp;&nbsp;马上开启</a></div>
+		        	<img src="img/nextArrow.png" class="nextArrow"/>
+		        </div>
+		        <div class="swiper-slide" id="slide2">
+		        	<img src="img/topImg2.png"/>
+		        	<p class="topTitle">副卡上网神器</p>
+		        	<img src="img/slide2_bg.png"/>
+		        	<img src="img/nextArrow.png" class="nextArrow"/>
+		        </div>
+		        <div class="swiper-slide" id="slide3">
+		        	<div style="overflow: scroll;">
+		        		<img src="img/topImg2.png"/>
+			        	<p class="topTitle">为什么选择大象流量卡</p>
+			        	<ul>
+			        		<li class="clear">
+			        			<span class="fl left_icon">充</span>
+			        			<div class="fl right_txt">
+			        				<h4>充值方便</h4>
+			        				<p>支持“支付宝”“微信”充值，随充随用</p>
+			        			</div>
+			        		</li>
+			        		<li class="clear">
+			        			<span class="fl left_icon">速</span>
+			        			<div class="fl right_txt">
+			        				<h4>高速上网</h4>
+			        				<p>流量使用独享的4G高速网络通道</p>
+			        			</div>
+			        		</li>
+			        		<li class="clear">
+			        			<span class="fl left_icon">省</span>
+			        			<div class="fl right_txt">
+			        				<h4>价格便宜</h4>
+			        				<p>同等流量套餐下，价格更便宜</p>
+			        			</div>
+			        		</li>
+			        		<li class="clear">
+			        			<span class="fl left_icon">0</span>
+			        			<div class="fl right_txt">
+			        				<h4>0元月租</h4>
+			        				<p>0元月租，不用不花钱</p>
+			        			</div>
+			        		</li>
+			        		<li class="clear">
+			        			<span class="fl left_icon">专</span>
+			        			<div class="fl right_txt">
+			        				<h4>流量专用</h4>
+			        				<p>流量专用卡，不能接打电话和收发短信</p>
+			        			</div>
+			        		</li>
+			        	</ul>
+		        	</div>
+		        </div>
+		    </div>
+		</div>
+		
+		<script src="js/Swiper-3.4.2/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>        
+		  var swiper = new Swiper ('.swiper-container', {
+		    direction: 'vertical',
+		  });        
+		    var startScroll, touchStart, touchCurrent;  
+	        swiper.slides.on('touchstart', function (e) {  
+	            startScroll = this.scrollTop;  
+	            touchStart = e.targetTouches[0].pageY;  
+	        }, true);  
+	        swiper.slides.on('touchmove', function (e) {  
+	            touchCurrent = e.targetTouches[0].pageY;  
+	            var touchesDiff = touchCurrent - touchStart;  
+	            var slide = this;  
+	            var onlyScrolling =   
+	                    ( slide.scrollHeight > slide.offsetHeight ) &&  
+	                    (  
+	                        ( touchesDiff < 0 && startScroll === 0 ) ||  
+	                        ( touchesDiff > 0 && startScroll === ( slide.scrollHeight - slide.offsetHeight ) ) ||  
+	                        ( startScroll > 0 && startScroll < ( slide.scrollHeight - slide.offsetHeight ) )  
+	                    );  
+	            if (onlyScrolling) {  
+	                e.stopPropagation();  
+	            }  
+	        }, true);  
+		 </script>
+	</body>
+</html>
